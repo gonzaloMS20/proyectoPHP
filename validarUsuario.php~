@@ -38,7 +38,7 @@
 				echo pg_num_rows($result);
 				echo pg_num_fields($result);
 				
-				if(pg_num_rows($result)==1 && $registro["username"]==$usuario->getUserName() && $registro["password"]==$usuario->getPassword()){
+				if(pg_rows($result)==1 && $registro["username"]==$usuario->getUserName() && $registro["password"]==$usuario->getPassword()){
 					echo "nombre correcto ".$usuario->getUserName();
 					echo "pasword ".$usuario->getPassword();
 					header ('location: /mascotas1.php');
