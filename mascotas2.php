@@ -10,26 +10,17 @@
 <CENTER>
 <?php 
 
-$password =$_POST[num];
-$user = $_POST[user];
+$mascota = $_POST[mascota];
+$numero = $_POST[numero];
 
-if(strcmp("leti",$user)==0){
-?>
-
-<h1>si</h1>
-<?php 
-}
-else{
-	echo "el usuario no existe";
-}
 ?>
 
 <BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
 <FORM action="validarUsuario.php" method="post">
     <P>
-    <LABEL for="nombre"><?=$password?> </LABEL>
+    <LABEL for="nombre"><?=$mascota?> </LABEL>
               
-    <LABEL for="apellido"><?=$user?> </LABEL>
+    <LABEL for="apellido"><?=$numero?> </LABEL>
               
     <INPUT type="submit" value="Enviar"> <INPUT type="reset">
     </P>
