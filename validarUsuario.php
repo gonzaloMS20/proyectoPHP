@@ -11,8 +11,8 @@
 	<?php 
 		require_once("Usuario.php");
 
-		$password = $_POST[pass];
 		$user = $_POST[user];
+		$password = $_POST[pass];
 
 		// Conectando y seleccionado la base de datos  
 		$dbconn = pg_connect("host=localhost dbname=tienda user=admin password=hola123,");
@@ -43,8 +43,14 @@
 					echo "pasword ".$usuario->getPassword();
 					header ('location: /mascotas1.php');
 				}
+				else{
+				 if($usuario->getUserName()!=="" && $usuario->getPassword()!==""){
+				
+					header ('location: /registro.php');
+				}
 				else {
-					header ('location: /registrarUsuario.php');
+					header ('location: /index.php');
+				}
 				}
 			}
 		}

@@ -1,6 +1,10 @@
-<HTML>
-	<HEAD><TITLE>TIENDA</TITLE></HEAD>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
+<HTML>
+	<HEAD>
+		<TITLE>TIENDA</TITLE>
+		<META http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</HEAD>
 	<CENTER> 
 		<H1>BIENVANIDO A LA TIENDA DE MASCOTAS</H1>
 	</CENTER>

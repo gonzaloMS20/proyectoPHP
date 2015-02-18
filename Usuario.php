@@ -3,18 +3,19 @@
 Class Usuario{
 
 	private $idUsuario;
+	private $idAdmin;
 	private $nombre;
 	private $apPaterno;
 	private $apMaterno;
 	private $userName;
 	private $password;
 	
-	public function Usuario($userName,$password){
+	public function __construct($userName,$password){
 		$this->userName=$userName;
 		$this->password=$password;
 	} 
 	
-	public function Usuario2($nombre,$apPaterno,$apMaterno,$userName,$password){
+	public function construct2($nombre,$apPaterno,$apMaterno,$userName,$password){
 		$this->nombre=$nombre;
 		$this->apPaterno=$apPaterno;
 		$this->apMaterno=$apMaterno;
@@ -26,6 +27,22 @@ Class Usuario{
 		return $this->idUsuario;
 	}
 	
+	public function getIdAdmin(){
+		return $this->idAdmin;
+	}
+	
+	public function getNombre(){
+		return $this->nombre;
+	}
+	
+	public function getApPaterno(){
+		return $this->apPaterno;
+	}
+	
+	public function getApMaterno(){
+		return $this->apMaterno;
+	}
+	
 	public function getUserName(){
 		return $this->userName;
 	}
@@ -33,6 +50,7 @@ Class Usuario{
 	public function getPassword(){
 		return $this->password;
 	}
+	
 }
 
 ?>
