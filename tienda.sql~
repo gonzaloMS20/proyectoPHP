@@ -20,7 +20,7 @@ imagen OID not null
 );
 create table usuario(
 id_usuario serial primary key,
-id_admin boolean,
+id_admin boolean not null,
 nombre char(30) not null,
 ap_paterno varchar(30) not null,
 ap_materno varchar(30) not null,
@@ -44,9 +44,11 @@ values (100,18000.50,'conejo','todos con 30 dias de nacidos',lo_import('/var/www
 insert into producto (cantidad,precio,nombre,descripcion,imagen) 
 values (200,1000.50,'gato','egipcio',lo_import('/var/www/imagenes/gato.png'));
 
-insert into usuario(nombre,ap_paterno,ap_materno,username,password)
-values ('Juan','Perez','Lopez','jperez','hola123,');
-insert into usuario(nombre,ap_paterno,ap_materno,username,password)
-values ('Rosita','Rodriguez','Godinez','rrodriguez','hola123,');
+insert into usuario(id_admin,nombre,ap_paterno,ap_materno,username,password)
+values ('false','Juan','Perez','Lopez','jperez','hola123,');
+insert into usuario(id_admin,nombre,ap_paterno,ap_materno,username,password)
+values ('false','Rosita','Rodriguez','Godinez','rrodriguez','hola123,');
+insert into usuario(id_admin,nombre,ap_paterno,ap_materno,username,password)
+values ('true','Admin','lopez','lopez','admin','hola123,');
 
 --insert into carrito(id_usuario,id_producto) values ();

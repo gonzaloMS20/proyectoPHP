@@ -9,7 +9,7 @@
 	<CENTER>
 	
 	<?php 
-		require_once("Usuario.php");
+		require_once("../Usuario.php");
 
 		$user = $_POST[user];
 		$password = $_POST[pass];
@@ -39,11 +39,11 @@
 				echo pg_num_fields($result);
 				
 				// Si es un usuario valido
-				if(pg_num_rows($result)==1 && $registro["username"]==$usuario->getUserName() && $registro["password"]==$usuario->getPassword()){			header ('location: /mascotas1.php');
+				if($registro["id_admin"]=="t" && pg_num_rows($result)==1 && $registro["username"]==$usuario->getUserName() && $registro["password"]==$usuario->getPassword()){			header ('location: /mascotas1.php');
 				}elseif($usuario->getUserName()=="" || $usuario->getPassword()==""){
-					header ('location: /index.php');
+					header ('location: index.php');
 				}elseif($usuario->getUserName()!=="" && $usuario->getPassword()!==""){
-					header ('location: /registro.php');
+					header ('location: registro.php');
 				}
 				
 			}

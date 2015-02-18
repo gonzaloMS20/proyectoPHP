@@ -14,7 +14,7 @@
 
 	<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
 	
-		<FORM action="var/validarUsuario.php" method="post">
+		<FORM action="/validarAdmin.php" method="post">
     		<P>
     			<LABEL for="nombre">usuario: </LABEL>
               			<INPUT type="text" name="user" id="usuario"><BR>

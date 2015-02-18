@@ -39,30 +39,11 @@
 				echo pg_num_fields($result);
 				
 				// Si es un usuario valido
-				if(pg_num_rows($result)==1 && $registro["username"]==$usuario->getUserName() && $registro["password"]==$usuario->getPassword()){
-					// Si es usuario normal			
-					if($registro["id_admin"]=="false"){
-						header ('location: /mascotas1.php');
-						
-					}elseif($usuario->getUserName()!=="" && $usuario->getPassword()!==""){
-				
-						header ('location: /registro.php');
-					}
-					elseif($usuario->getUserName()==!"" || $usuario->getPassword()=="") {
-						header ('location: /index.php');
-					}
-					
-					// Si es administrador
-					if($registro["id_admin"]=="true"){
-						header ('location: /mascotas2.php');
-					
-					}elseif($usuario->getUserName()!=="" && $usuario->getPassword()!==""){
-				
-						header ('location: /administrado/registro.php');
-					}
-					elseif($usuario->getUserName()==!"" || $usuario->getPassword()=="") {
-						header ('location: /administrador/index.php');
-					}
+				if($registro["id_admin"]=="f" && pg_num_rows($result)==1 && $registro["username"]==$usuario->getUserName() && $registro["password"]==$usuario->getPassword()){			header ('location: /mascotas1.php');
+				}elseif($usuario->getUserName()=="" || $usuario->getPassword()==""){
+					header ('location: /index.php');
+				}elseif($usuario->getUserName()!=="" && $usuario->getPassword()!==""){
+					header ('location: /registro.php');
 				}
 				
 			}

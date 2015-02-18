@@ -11,7 +11,7 @@
 
 	<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
 	
-		<H3>Ingresa tus tados para registarte en nustra tienda</H3>
+		<H3>Ingresa tus tados para registarte en nuestra tienda</H3>
 		<FORM action="registrarUsuario.php" method="post">
     		<P>
     			<LABEL for="nombre">NOMBRE(S): </LABEL>
@@ -29,7 +29,7 @@
     		</P>
  		</FORM>
 
- 		<FORM method="post" action="respaldos.pl"><BR>
+ 		<FORM method="post" action="index.php"><BR>
 			<INPUT type="submit" name="op" value="Regresar">
 		</FORM>
 	</BODY>

@@ -38,6 +38,9 @@ foreign key (id_producto) references producto (id_producto)
 GRANT ALL PRIVILEGES ON TABLE producto TO admin;
 GRANT ALL PRIVILEGES ON TABLE usuario TO admin;
 GRANT ALL PRIVILEGES ON TABLE carrito TO admin;
+GRANT ALL PRIVILEGES ON usuario_id_usuario_seq TO admin;
+GRANT ALL PRIVILEGES ON producto_id_producto_seq TO admin;
+GRANT ALL PRIVILEGES ON carrito_id_carrito_seq TO admin;
 
 insert into producto (cantidad,precio,nombre,descripcion,imagen) 
 values (100,18000.50,'conejo','todos con 30 dias de nacidos',lo_import('/var/www/imagenes/conejo.png'));
