@@ -1,5 +1,15 @@
+DROP DATABASE tienda;
+DROP USER admin;
+
+CREATE USER admin PASSWORD 'hola123,';
+
+CREATE DATABASE tienda with owner admin;
+
+GRANT ALL PRIVILEGES ON DATABASE tienda TO admin;
+
 
 \c tienda
+
 create table producto(
 id_producto serial primary key,
 cantidad int not null,
@@ -10,7 +20,7 @@ imagen OID not null
 );
 create table usuario(
 id_usuario serial primary key,
-id_admin serial,
+id_admin boolean,
 nombre char(30) not null,
 ap_paterno varchar(30) not null,
 ap_materno varchar(30) not null,
@@ -25,10 +35,14 @@ foreign key (id_usuario) references usuario (id_usuario),
 foreign key (id_producto) references producto (id_producto)
 );
 
+GRANT ALL PRIVILEGES ON TABLE producto TO admin;
+GRANT ALL PRIVILEGES ON TABLE usuario TO admin;
+GRANT ALL PRIVILEGES ON TABLE carrito TO admin;
+
 insert into producto (cantidad,precio,nombre,descripcion,imagen) 
-values (100,18000.50,'conejo','todos con 30 dias de nacidos',lo_import('/var/www/imagenes/imagen.png'));
+values (100,18000.50,'conejo','todos con 30 dias de nacidos',lo_import('/var/www/imagenes/conejo.png'));
 insert into producto (cantidad,precio,nombre,descripcion,imagen) 
-values (200,1000.50,'gato','egipcio',lo_import('/var/www/imagenes/imagen.png'));
+values (200,1000.50,'gato','egipcio',lo_import('/var/www/imagenes/gato.png'));
 
 insert into usuario(nombre,ap_paterno,ap_materno,username,password)
 values ('Juan','Perez','Lopez','jperez','hola123,');
