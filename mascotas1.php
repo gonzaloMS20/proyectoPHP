@@ -5,11 +5,10 @@
 	</TITLE>
 	</HEAD>
 	<BODY>
-<<<<<<< HEAD
+
 <form action="mascotas2.php" method="post">
 <select name="mascota">
-=======
->>>>>>> bfc40396c9b71d1da2bfd3e8ce5b727b61758393
+
 
 <?php
 
@@ -22,21 +21,21 @@
 		exit;
 		}
 
-<<<<<<< HEAD
+
 	$query = "SELECT nombre,cantidad,imagen FROM producto";
 	$result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
 	
-=======
+
 
 	$query = "SELECT nombre,cantidad FROM producto";
 	$result = pg_query($query);
->>>>>>> bfc40396c9b71d1da2bfd3e8ce5b727b61758393
+
 	if(!$result)
 	{
 		echo "ocurrio un error.\n";
 		exit;
 	}
-<<<<<<< HEAD
+
 	
 	//$row = pg_fetch_assoc($result);
 	while($row = pg_fetch_assoc($result)){
@@ -52,7 +51,7 @@
 		 //echo '<br><img src="'.$imagenes["imagen"].'><br>';
 		#echo "<br/>\n";
 	}
-=======
+
 ?>
 <form method="post">
 <select name="mascota">
@@ -69,7 +68,7 @@
 		?>
 
 </select>
->>>>>>> bfc40396c9b71d1da2bfd3e8ce5b727b61758393
+
 
 <?php
 		
@@ -85,13 +84,12 @@
 	pg_close($conexion);
 
 ?>
-<<<<<<< HEAD
+
 <br>
 </select>
 
 <INPUT type="submit" value="Guardar"> <INPUT type="reset">
-=======
->>>>>>> bfc40396c9b71d1da2bfd3e8ce5b727b61758393
+
 </form>
 	</BODY>
 	</HEAD>
