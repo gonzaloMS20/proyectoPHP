@@ -25,10 +25,9 @@
 		}
 		else{
 			//echo "si se conecto";
-			//$usuario = new Usuario($nombre,$apPaterno,$apMaterno,$userName,$password);
 			$usuario = new Usuario;
 			$usuario->construct2($nombre,$apPaterno,$apMaterno,$user,$password);
-			//print "get nom >>>>>>>"$usuario->getNombre();
+			
 			$query = "INSERT INTO usuario (nombre,ap_paterno,ap_materno,username,password) 
 			VALUES ('".$usuario->getNombre()."','".$usuario->getApPaterno()."','".$usuario->getApMaterno()."','".$usuario->getUserName()."','".$usuario->getPassword()."')";
 			
@@ -42,9 +41,6 @@
 			else{
 	
 				echo "exito";
-				 
-				
-				
 			
 			}
 		}

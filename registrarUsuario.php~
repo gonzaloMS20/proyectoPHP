@@ -2,26 +2,56 @@
 	<HEAD><TITLE>TIENDA</TITLE></HEAD>
 
 	<CENTER> 
-		<H1>TIENDA DE MASCOTAS</H1>
-		<H2>REGISTRO DE USUARIO</H2>
+		<H1>VALIDAR</H1>
 	</CENTER>
 	<BR><BR>
 
 	<CENTER>
+	
+	<?php 
+		require_once("Usuario.php");
+
+		$nombre = $_POST[nombre];
+		$apPaterno = $_POST[apPat];
+		$apMaterno = $_POST[apMat];
+		$user = $_POST[user];
+		$password = $_POST[pass];
+
+		// Conectando y seleccionado la base de datos  
+		$dbconn = pg_connect("host=localhost dbname=tienda user=admin password=hola123,");
+		
+		if(!$dbconn){
+			die('No se ha podido conectar: ' . pg_last_error());
+		}
+		else{
+			//echo "si se conecto";
+			$usuario = new Usuario;
+			$usuario->construct2($nombre,$apPaterno,$apMaterno,$user,$password);
+			
+			$query = "INSERT INTO usuario (nombre,ap_paterno,ap_materno,username,password) 
+			VALUES ('".$usuario->getNombre()."','".$usuario->getApPaterno()."','".$usuario->getApMaterno()."','".$usuario->getUserName()."','".$usuario->getPassword()."')";
+			
+			// Realizando una consulta SQL
+		
+			$result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());	
+
+			if(!$result){
+				echo "no exito";
+			}
+			else{
+	
+				echo "exito";
+				 
+				
+				
+			
+			}
+		}
+	?>
 
 	<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
-	
-		<FORM action="validarUsuario.php" method="post">
-    		<P>
-    			<LABEL for="nombre">NOMBRE: </LABEL>
-              			<INPUT type="text" name="nombre" id="nombre"><BR>
-    			<LABEL for="nombre">usuario: </LABEL>
-              			<INPUT type="text" name="user" id="usuario"><BR>
-    			<LABEL for="apellido">pasword: </LABEL>
-              			<INPUT type="password" name="pass" id="password"><BR><BR>
-    			<INPUT type="submit" value="Enviar"> <INPUT type="reset">
-    		</P>
- 		</FORM>
+	REGISTRADO
+
 	</BODY>
 	</CENTER>
 </HTML> 

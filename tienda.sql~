@@ -5,7 +5,6 @@ id_producto serial primary key,
 cantidad int not null,
 precio numeric(7,2) not null,
 nombre varchar(50) not null,
---nombre text not null,
 descripcion text not null,
 imagen OID not null
 );
@@ -26,9 +25,9 @@ foreign key (id_producto) references producto (id_producto)
 );
 
 insert into producto (cantidad,precio,nombre,descripcion,imagen) 
-values (100,18000.50,'conejo','todos con 30 dias de nacidos',lo_import('/home/php/imagen.png'));
+values (100,18000.50,'conejo','todos con 30 dias de nacidos',lo_import('/var/www/imagenes/imagen.png'));
 insert into producto (cantidad,precio,nombre,descripcion,imagen) 
-values (200,1000.50,'gato','egipcio',lo_import('/home/php/imagen.png'));
+values (200,1000.50,'gato','egipcio',lo_import('/var/www/imagenes/imagen.png'));
 
 insert into usuario(nombre,ap_paterno,ap_materno,username,password)
 values ('Juan','Perez','Lopez','jperez','hola123,');

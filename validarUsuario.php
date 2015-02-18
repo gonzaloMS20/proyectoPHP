@@ -44,13 +44,13 @@
 					header ('location: /mascotas1.php');
 				}
 				else{
-				 if($usuario->getUserName()!=="" && $usuario->getPassword()!==""){
+					if($usuario->getUserName()!=="" && $usuario->getPassword()!==""){
 				
-					header ('location: /registro.php');
-				}
-				else {
-					header ('location: /index.php');
-				}
+						header ('location: /registro.php');
+					}
+					else {
+						header ('location: /index.php');
+					}
 				}
 			}
 		}
