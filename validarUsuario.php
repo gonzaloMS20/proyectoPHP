@@ -24,7 +24,7 @@
 			//echo "si se conecto";
 			$usuario = new Usuario($user,$password);
 			
-			$query = "SELECT username,password FROM usuario WHERE username ='".$usuario->getUserName()."' and password = '".$usuario->getPassword()."'";
+			$query = "SELECT id_admin,username,password FROM usuario WHERE username ='".$usuario->getUserName()."' and password = '".$usuario->getPassword()."'";
 			// Realizando una consulta SQL
 		
 			$result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());	
@@ -38,20 +38,33 @@
 				echo pg_num_rows($result);
 				echo pg_num_fields($result);
 				
+				// Si es un usuario valido
 				if(pg_num_rows($result)==1 && $registro["username"]==$usuario->getUserName() && $registro["password"]==$usuario->getPassword()){
-					echo "nombre correcto ".$usuario->getUserName();
-					echo "pasword ".$usuario->getPassword();
-					header ('location: /mascotas1.php');
-				}
-				else{
-					if($usuario->getUserName()!=="" && $usuario->getPassword()!==""){
+					// Si es usuario normal			
+					if($registro["id_admin"]=="false"){
+						header ('location: /mascotas1.php');
+						
+					}elseif($usuario->getUserName()!=="" && $usuario->getPassword()!==""){
 				
 						header ('location: /registro.php');
 					}
-					else {
+					elseif($usuario->getUserName()==!"" || $usuario->getPassword()=="") {
 						header ('location: /index.php');
 					}
+					
+					// Si es administrador
+					if($registro["id_admin"]=="true"){
+						header ('location: /mascotas2.php');
+					
+					}elseif($usuario->getUserName()!=="" && $usuario->getPassword()!==""){
+				
+						header ('location: /administrado/registro.php');
+					}
+					elseif($usuario->getUserName()==!"" || $usuario->getPassword()=="") {
+						header ('location: /administrador/index.php');
+					}
 				}
+				
 			}
 		}
 	?>

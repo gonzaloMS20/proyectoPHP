@@ -2,7 +2,7 @@
 	<HEAD><TITLE>TIENDA</TITLE></HEAD>
 
 	<CENTER> 
-		<H1>VALIDAR</H1>
+		<H1>REGISTAR</H1>
 	</CENTER>
 	<BR><BR>
 
@@ -11,6 +11,7 @@
 	<?php 
 		require_once("Usuario.php");
 
+		$idAdmin = "false";
 		$nombre = $_POST[nombre];
 		$apPaterno = $_POST[apPat];
 		$apMaterno = $_POST[apMat];
@@ -26,13 +27,14 @@
 		else{
 			//echo "si se conecto";
 			$usuario = new Usuario;
-			$usuario->construct2($nombre,$apPaterno,$apMaterno,$user,$password);
+			$usuario->construct2($idAdmin,$nombre,$apPaterno,$apMaterno,$user,$password);
 			
-			$query = "INSERT INTO usuario (nombre,ap_paterno,ap_materno,username,password) 
-			VALUES ('".$usuario->getNombre()."','".$usuario->getApPaterno()."','".$usuario->getApMaterno()."','".$usuario->getUserName()."','".$usuario->getPassword()."')";
+			$query = "INSERT INTO usuario (id_admin,nombre,ap_paterno,ap_materno,username,password) 
+			VALUES ('".$usuario->getIdAdmin()."','".$usuario->getNombre()."','".$usuario->getApPaterno()."','".$usuario->getApMaterno()."','".$usuario->getUserName()."','".$usuario->getPassword()."')";
 			
 			// Realizando una consulta SQL
 		
+			print $query;		
 			$result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());	
 
 			if(!$result){
@@ -41,9 +43,6 @@
 			else{
 	
 				echo "exito";
-				 
-				
-				
 			
 			}
 		}

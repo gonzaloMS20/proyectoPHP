@@ -9,9 +9,9 @@
 	<CENTER>
 	
 	<?php 
-		require_once("Usuario.php");
+		require_once("../Usuario.php");
 
-		$idAdmin = "false";
+		$idAdmin = "true";
 		$nombre = $_POST[nombre];
 		$apPaterno = $_POST[apPat];
 		$apMaterno = $_POST[apMat];
@@ -35,7 +35,7 @@
 			// Realizando una consulta SQL
 		
 			print $query;		
-			$result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());	
+			$result;// = pg_query($query) or die('La consulta fallo: ' . pg_last_error());	
 
 			if(!$result){
 				echo "no exito";

@@ -28,7 +28,7 @@ Class Usuario{
 		return $this->idUsuario;
 	}
 	
-	public function geAdmin(){
+	public function getIdAdmin(){
 		return $this->idAdmin;
 	}
 	

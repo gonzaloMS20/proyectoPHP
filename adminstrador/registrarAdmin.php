@@ -9,9 +9,9 @@
 	<CENTER>
 	
 	<?php 
-		require_once("Usuario.php");
+		require_once("../Usuario.php");
 
-		$idAdmin = "false";
+		$idAdmin = "true";
 		$nombre = $_POST[nombre];
 		$apPaterno = $_POST[apPat];
 		$apMaterno = $_POST[apMat];
