@@ -11,6 +11,8 @@
 	<?php 
 		require_once("Usuario.php");
 
+		session_start();
+		
 		$user = $_POST[user];
 		$password = $_POST[pass];
 
@@ -39,7 +41,10 @@
 				echo pg_num_fields($result);
 				
 				// Si es un usuario valido
-				if($registro["id_admin"]=="f" && pg_num_rows($result)==1 && $registro["username"]==$usuario->getUserName() && $registro["password"]==$usuario->getPassword()){			header ('location: /mascotas1.php');
+				if($registro["id_admin"]=="f" && pg_num_rows($result)==1 && $registro["username"]==$usuario->getUserName() && $registro["password"]==$usuario->getPassword()){
+					$_SESSION['user']=$usuario->getUserName();
+					$_SESSION['pass']=$usuario->getPassword();
+					header ('location: /mascotas1.php');
 				}elseif($usuario->getUserName()=="" || $usuario->getPassword()==""){
 					header ('location: /index.php');
 				}elseif($usuario->getUserName()!=="" && $usuario->getPassword()!==""){

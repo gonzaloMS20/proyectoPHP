@@ -7,7 +7,6 @@ CREATE DATABASE tienda with owner admin;
 
 GRANT ALL PRIVILEGES ON DATABASE tienda TO admin;
 
-
 \c tienda
 
 create table producto(

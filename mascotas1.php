@@ -1,98 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <HTML>
 	<HEAD>
-	<TITLE>
-	MASCOTAS DISPONIBLES
-	</TITLE>
+		<TITLE>TIENDA</TITLE>
+		<META http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</HEAD>
-	<BODY>
+	<CENTER> 
+		<H1>MASCOTAS DISPONIBLES EN NUESTRA TIENDA</H1>
+	</CENTER>
+	<BR><BR>
+<?php 
+	session_start();
+	
+	$usuario=$_SESSION['user'];
+	$password=$_SESSION['pass'];
 
-<form action="mascotas2.php" method="post">
-<select name="mascota">
+	echo '<P>hola'.$usuario.'</P>';
+?>
 
+	<CENTER>
+
+	<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
+
+		<H2>SELECCIONA TU MASCOTA:</H2>	
+		<FORM action="mascotas2.php" method="post">
+
+			<SELECT name="mascota" MULTIPLE>
 
 <?php
 
 	$conn_string = "host=localhost dbname=tienda user=admin password=hola123,";
 	$conexion = pg_connect($conn_string);
+	
 	if(!$conexion){
-		echo"<CENTER>
+		echo "<CENTER>
 		Error: no se pudo conectar a la bd';
 		</CENTER>";
 		exit;
-		}
+	}else{
 
+		$query = "SELECT nombre FROM producto";
+		$result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
 
-	$query = "SELECT nombre,cantidad,imagen FROM producto";
-	$result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
-	
-
-
-	$query = "SELECT nombre,cantidad FROM producto";
-	$result = pg_query($query);
-
-	if(!$result)
-	{
-		echo "ocurrio un error.\n";
-		exit;
-	}
-
-	
-	//$row = pg_fetch_assoc($result);
-	while($row = pg_fetch_assoc($result)){
-	
-		echo '<option value="'.$row['nombre'].'">'.$row['nombre'].'</option>';
-		//echo '<img src="imagenes/cerdo.png">';
-		$q = "SELECT imagen FROM producto WHERE nombre = '".$row['nombre']."'";
+		if(!$result){
 		
-		print  '<br><h1>hola</h1>';
-		//print '<p>'.$q.'</p>';
-		//$registro = pg_query($q) or die('La consulta fallo: ' . pg_last_error());
-		//$imagenes = pg_fetch_array($registro);
-		 //echo '<br><img src="'.$imagenes["imagen"].'><br>';
-		#echo "<br/>\n";
+			echo "ocurrio un error.\n";
+			exit;
+		}else{
+
+			while($row = pg_fetch_assoc($result)){
+	
+				echo '<option value="'.$row['nombre'].'">'.$row['nombre'].'</option>';
+			}
+		}
+		
 	}
 
 ?>
-<form method="post">
-<select name="mascota">
-<?php
-	while($row = pg_fetch_assoc($result)){	
-		echo '<option value="'.htmlspecialchars($row['nombre']).'">'.htmlspecialchars($row['nombre']).'</option>';
-		echo "<br/>\n";
-		}
-		
-		
-		$cantidad = $_POST['cuantos'];
-		print ($cantidad);
-		echo "<input type=text value=\"$cantidad\"/>";		
-		?>
-
-</select>
-
-
-<?php
-		
-		echo "
-			<input type=submit name=enviar value=\"enviar\"/>";
-		if($_POST[enviar]){
-			}
-		
-		echo "
-			<input type=submit name=total value=\"total\"/>";
-		if($_POST[total]){
-			}
-	pg_close($conexion);
-
-?>
-
-<br>
-</select>
-
-<INPUT type="submit" value="Guardar"> <INPUT type="reset">
-
-</form>
+			
+			</SELECT>
+			<BR></BR>
+			<INPUT type="submit" value="Ver Mascota"><INPUT type="reset">
+		</FORM>
 	</BODY>
-	</HEAD>
+	</CENTER>
 </HTML>
 
 
