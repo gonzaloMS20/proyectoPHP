@@ -1,6 +1,9 @@
 <?php 
 	session_start();
 	
+	if($_POST[mascota]==""){
+		header ('location: mascotas.php');
+	}
 	$usuario=$_SESSION['user'];
 	$password=$_SESSION['pass'];
 	
@@ -86,7 +89,7 @@
 				<BR>   
 				<INPUT type="submit" value="Comprar"> 
 			</FORM>
-			<FORM method="post" action="mascotas1.php">
+			<FORM method="post" action="mascotas.php">
 				<INPUT type="submit" name="op" value="Regresar">
 			</FORM>
 		</BODY>
