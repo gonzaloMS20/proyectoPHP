@@ -36,6 +36,8 @@
 
 	$mascota = $_POST[mascota];
 	
+	print $mascota;
+	
 	$conn_string = 'host=localhost dbname=tienda user=postgres password=hola123,';
 	$conexion = pg_connect($conn_string);
 	
@@ -46,7 +48,8 @@
 		exit;
 	}else{
 
-		$query = "SELECT nombre,cantidad,precio,descripcion,imagen FROM producto where nombre = '".$mascota."'";
+		$query = "SELECT * FROM producto where nombre = '".$mascota."'";
+		
 		$result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
 
 		if(!$result){
@@ -54,18 +57,12 @@
 			echo "ocurrio un error.\n";
 			exit;
 		}else{
-
-			$query2 = "SELECT nombre,cantidad,precio,descripcion,imagen FROM producto";
-			$result2 = pg_query($query2) or die('La consulta fallo: ' . pg_last_error());
-			
-			$registro2 = pg_fetch_array($result2);
 			$registro = pg_fetch_array($result);
 			
-			//$queryImg = "SELECT lo_export(".$registro["imagen"].",'/var/www/img/".$registro["nombre"].".png') from producto where nombre='".$registro["nombre"]."'"; 
-			$queryImg = "SELECT lo_export(".$registro2["imagen"].",'/var/www/img/".$registro2["nombre"].".png') from producto"; 
+			$queryImg = "SELECT lo_export(".$registro["imagen"].",'/var/www/img/".$registro["nombre"].".png') from producto where nombre='".$mascota."'"; 
 			
 			$resultImg = pg_query($queryImg) or die('La consulta fallo: ' . pg_last_error());
-			//header("Content-type:image/png");
+			
 			echo '<TR>
 					<TD><img src="/img/'.$registro["nombre"].'.png" width="200" height="200"></TD>
 					<TD>'.$registro["nombre"].'</TD>
