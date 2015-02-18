@@ -10,6 +10,7 @@ imagen OID not null
 );
 create table usuario(
 id_usuario serial primary key,
+id_admin serial,
 nombre char(30) not null,
 ap_paterno varchar(30) not null,
 ap_materno varchar(30) not null,
