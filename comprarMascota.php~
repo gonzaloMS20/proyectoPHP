@@ -3,7 +3,9 @@
 	
 	$usuario=$_SESSION['user'];
 	$password=$_SESSION['pass'];
-
+	
+	$_SESSION['mascota']= $_POST[mascota];
+					
 	echo '<P>hola'.$usuario.'</P>';
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -23,7 +25,7 @@
 
 			<H2>SELECCIONA TU MASCOTA:</H2>	
 
-			<FORM action="validarUsuario.php" method="post">
+			<FORM action="mostrarCarrito.php" method="post">
 				<TABLE 	border="1" width="300">
 				<TR>
 					<TD><STRONG>MASCOTA<STRING/></TD>
@@ -76,7 +78,11 @@
 	}
 
 ?>
+				
 				</TABLE>
+				<BR>
+				<LABEL for="cantidad">CANTIDAD: </LABEL>
+              			<INPUT type="text" name="cantidad" id="cant"><BR>
 				<BR>   
 				<INPUT type="submit" value="Comprar"> 
 			</FORM>

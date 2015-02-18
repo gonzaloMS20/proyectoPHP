@@ -44,7 +44,9 @@
 				if($registro["id_admin"]=="f" && pg_num_rows($result)==1 && $registro["username"]==$usuario->getUserName() && $registro["password"]==$usuario->getPassword()){
 					$_SESSION['user']=$usuario->getUserName();
 					$_SESSION['pass']=$usuario->getPassword();
-					header ('location: /mascotas1.php');
+					$mascotas=array();
+					$_SESSION['carrito']=$mascotas;
+					header ('location: /mascotas.php');
 				}elseif($usuario->getUserName()=="" || $usuario->getPassword()==""){
 					header ('location: /index.php');
 				}elseif($usuario->getUserName()!=="" && $usuario->getPassword()!==""){

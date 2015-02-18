@@ -22,7 +22,7 @@
 	<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
 
 		<H2>SELECCIONA TU MASCOTA:</H2>	
-		<FORM action="comprarMascota.php" method="post">
+		<FORM action="camprarMascota.php" method="post">
 
 			<SELECT name="mascota" MULTIPLE>
 
