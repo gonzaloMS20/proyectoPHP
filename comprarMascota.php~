@@ -1,12 +1,17 @@
 <?php 
 	session_start();
 	
-	if($_POST[mascota]==" "){
+	
+	
+	if($_POST[mascota]==""){
 		header ('location: mascotas.php');
 	}
 	$usuario=$_SESSION['user'];
 	$password=$_SESSION['pass'];
 	
+	if ($usuario=="" || $password==""){
+		header ('location: index.php');
+	}
 	$_SESSION['mascota']= $_POST[mascota];
 					
 	echo '<P>mascota'.$_SESSION['mascota'].'</P>';

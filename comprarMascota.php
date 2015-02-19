@@ -1,15 +1,19 @@
 <?php 
 	session_start();
 	
+	
+	
 	if($_POST[mascota]==""){
 		header ('location: mascotas.php');
 	}
 	$usuario=$_SESSION['user'];
 	$password=$_SESSION['pass'];
 	
+	if ($usuario=="" || $password==""){
+		header ('location: index.php');
+	}
 	$_SESSION['mascota']= $_POST[mascota];
 					
-	echo '<P>mascota'.$_SESSION['mascota'].'</P>';
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <HTML>

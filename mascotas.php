@@ -13,8 +13,11 @@
 	
 	$usuario=$_SESSION['user'];
 	$password=$_SESSION['pass'];
+	
+	if ($usuario=="" || $password==""){
+		header ('location: index.php');
+	}
 
-	echo '<P>hola'.$usuario.'</P>';
 ?>
 
 	<CENTER>

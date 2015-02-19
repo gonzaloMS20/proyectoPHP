@@ -26,20 +26,31 @@ ap_materno varchar(30) not null,
 username varchar(30) unique not null,
 password varchar(32) not null
 );
+
+CREATE TABLE venta(
+id_venta serial primary key,
+total numeric(10,2) not null
+);
+
 create table carrito(
 id_carrito serial primary key,
 id_usuario int not null,
 id_producto int not null,
+id_venta int not null,
 foreign key (id_usuario) references usuario (id_usuario),
-foreign key (id_producto) references producto (id_producto)
+foreign key (id_producto) references producto (id_producto),
+foreign key (id_venta) references venta (id_venta)
 );
+
 
 GRANT ALL PRIVILEGES ON TABLE producto TO admin;
 GRANT ALL PRIVILEGES ON TABLE usuario TO admin;
 GRANT ALL PRIVILEGES ON TABLE carrito TO admin;
+GRANT ALL PRIVILEGES ON TABLE venta TO admin;
 GRANT ALL PRIVILEGES ON usuario_id_usuario_seq TO admin;
 GRANT ALL PRIVILEGES ON producto_id_producto_seq TO admin;
 GRANT ALL PRIVILEGES ON carrito_id_carrito_seq TO admin;
+GRANT ALL PRIVILEGES ON venta_id_venta_seq TO admin;
 
 insert into producto (cantidad,precio,nombre,descripcion,imagen) 
 values (100,18000.50,'conejo','todos con 30 dias de nacidos',lo_import('/var/www/imagenes/conejo.png'));
