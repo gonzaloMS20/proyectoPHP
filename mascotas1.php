@@ -1,35 +1,42 @@
 <HTML>
-<HEAD>
-<TITLE>TIENDA</TITLE>
-</HEAD>
+	<HEAD>
+	<TITLE>
+	MASCOTAS DISPONIBLES
+	</TITLE>
+	</HEAD>
+	<BODY>
+<form action="updateform.php" method="post">
+<select name="mascota">
+<?php
 
-<CENTER> 
-<H1>BIENVANIDO A LA TIENDA DE MASCOTAS</H1>
-</CENTER>
-<BR><BR>
-<CENTER>
-<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
-<FORM action="mascotas2.php" method="post">
-    <P>
-<select name="mascota" id="mascota" value"3">
-	<option>conejo</option>
-	<option>perro</option>
-	<option>loro</option>
-	<option>gato</option>
-	<option>hamster</option>
-</select>	
-<select name="numero" id="numero" value"1">
-	<option>1</option>
-	<option>2</option>
-	<option>3</option>
-	<option>4</option>
-	<option>5</option>
-</select>	    
+	$conn_string = "host=localhost dbname=tienda user=admin password=hola123,";
+	$conexion = pg_connect($conn_string);
+	if(!$conexion){
+		echo"<CENTER>
+		Error: no se pudo conectar a la bd';
+		</CENTER>";
+		exit;
+		}
+		
 
-	<INPUT type="submit" value="Enviar"> <INPUT type="reset">
-    </P>
- </FORM>
-</BODY>
-</CENTER>
-</HTML> 
+	$query = "SELECT nombre FROM producto";
+	$result = pg_query($query);
+	if(!$result)
+	{
+		echo "ocurrio un error.\n";
+		exit;
+	}
+	while($row = pg_fetch_assoc($result)){
+		echo '<option value="'.htmlspecialchars($row['nombre']).'">'.htmlspecialchars($row['nombre']).'</option>';
+		#echo "<br/>\n";
+		}
+
+		
+	pg_close($conexion);
+?>
+</select>
+</form>
+	</BODY>
+	</HEAD>
+</HTML>
 
