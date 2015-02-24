@@ -26,7 +26,7 @@
 		exit;
 	}
 ?>
-<form action="updateform.php" method="post">
+<form method="post">
 <select name="mascota">
 <?php
 	while($row = pg_fetch_assoc($result)){	
@@ -41,18 +41,22 @@
 		?>
 
 </select>
-</form>
+
 <?php
 		
-		echo "<form method=\"post\">
-			<input type=submit name=enviar value=\"enviar\"/></form>";
+		echo "
+			<input type=submit name=enviar value=\"enviar\"/>";
 		if($_POST[enviar]){
 			}
 		
-		
+		echo "
+			<input type=submit name=total value=\"total\"/>";
+		if($_POST[total]){
+			}
 	pg_close($conexion);
 
 ?>
+</form>
 	</BODY>
 	</HEAD>
 </HTML>
