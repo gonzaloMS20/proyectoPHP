@@ -45,6 +45,28 @@ insert into producto (cantidad,precio,nombre,descripcion,imagen)
 values (100,18000.50,'conejo','todos con 30 dias de nacidos',lo_import('/var/www/imagenes/conejo.png'));
 insert into producto (cantidad,precio,nombre,descripcion,imagen) 
 values (200,1000.50,'gato','egipcio',lo_import('/var/www/imagenes/gato.png'));
+insert into producto (cantidad,precio,nombre,descripcion,imagen)
+values (200,1000.50,'burro','de carga',lo_import('/var/www/imagenes/Burro.png'));
+insert into producto (cantidad,precio,nombre,descripcion,imagen)
+values (200,1000.50,'caballo','sangre pura',lo_import('/var/www/imagenes/caballo.png'));
+insert into producto (cantidad,precio,nombre,descripcion,imagen)
+values (200,1000.50,'cerdo','recien nacidos y tiernos',lo_import('/var/www/imagenes/cerdo.png'));
+insert into producto (cantidad,precio,nombre,descripcion,imagen)
+values (200,1000.50,'cordero','de 20 a 60 dias de nacidos',lo_import('/var/www/imagenes/cordero.png'));
+insert into producto (cantidad,precio,nombre,descripcion,imagen)
+values (200,1000.50,'gallo','de peleas y domesticos',lo_import('/var/www/imagenes/gallo.png'));
+insert into producto (cantidad,precio,nombre,descripcion,imagen)
+values (200,9999.50,'loro','todos los colores',lo_import('/var/www/imagenes/loro.png'));
+insert into producto (cantidad,precio,nombre,descripcion,imagen)
+values (200,1000.50,'oveja','tierna',lo_import('/var/www/imagenes/oveja.png'));
+insert into producto (cantidad,precio,nombre,descripcion,imagen)
+values (200,1000.50,'pato','recien nacidos en amarillo y blanco',lo_import('/var/www/imagenes/pato.png'));
+insert into producto (cantidad,precio,nombre,descripcion,imagen)
+values (200,1000.50,'perro','distintas razas',lo_import('/var/www/imagenes/perro.png'));
+insert into producto (cantidad,precio,nombre,descripcion,imagen)
+values (200,1000.50,'pollo','todos los colores',lo_import('/var/www/imagenes/pollo.png'));
+insert into producto (cantidad,precio,nombre,descripcion,imagen)
+values (200,1000.50,'vaca','lechera',lo_import('/var/www/imagenes/vaca.png'));
 
 insert into usuario(id_admin,nombre,ap_paterno,ap_materno,username,password)
 values ('false','Juan','Perez','Lopez','jperez','hola123,');
