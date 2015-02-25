@@ -7,7 +7,7 @@ $nomb_=$_POST['nomb'];
 $desc_=$_POST['desc'];
 $ima_=$_POST['ima'];
 
-	$conn_string = "host=localhost dbname=tienda user=admin password=hola123,";
+	$conn_string = "host=localhost dbname=tienda user=postgres password=hola123,";
 	$conexion = pg_connect($conn_string);
 	$uploaddir = '/var/www';
 	$uploadfile=$uploaddir.basename($_FILES['userfile']['$ima']);

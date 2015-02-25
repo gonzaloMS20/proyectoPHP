@@ -23,9 +23,9 @@
     			<INPUT type="submit" value="Enviar"> <INPUT type="reset">
     		</P>
  		</FORM>
- 		<?php
-	echo '<a href="'.$_SERVER['HTTP_REFERER'].'">Regresar</a>';
-	?>
+ 		<FORM action="menu.php" method="post">           			
+    			<INPUT type="submit" value="Regresar al menú"> </P>
+ 		</FORM>
 	</BODY>
 	</CENTER>
 </HTML> 
