@@ -10,6 +10,8 @@
 	
 	<?php 
 		require_once("../Usuario.php");
+		
+		session_start();
 
 		$user = $_POST[user];
 		$password = $_POST[pass];
@@ -39,11 +41,16 @@
 				echo pg_num_fields($result);
 				
 				// Si es un usuario valido
-				if($registro["id_admin"]=="t" && pg_num_rows($result)==1 && $registro["username"]==$usuario->getUserName() && $registro["password"]==$usuario->getPassword()){			header ('location: /mascotas1.php');
+				if($registro["id_admin"]=="t" && pg_num_rows($result)==1 && $registro["username"]==$usuario->getUserName() && $registro["password"]==$usuario->getPassword()){			
+					header ('location: formulario.php');
+				}elseif($registro["id_admin"]=="f" && pg_num_rows($result)==1 && $registro["username"]==$usuario->getUserName() && $registro["password"]==$usuario->getPassword()){			
+					header ('location: /mascotas.php');
+				}elseif($registro["id_admin"]=="t" && pg_num_rows($result)==1 && $registro["username"]==$usuario->getUserName() && $registro["password"]==""){
+					header('location: index.php');
 				}elseif($usuario->getUserName()=="" || $usuario->getPassword()==""){
 					header ('location: index.php');
 				}elseif($usuario->getUserName()!=="" && $usuario->getPassword()!==""){
-					header ('location: registro.php');
+					header ('location: index.php');
 				}
 				
 			}
@@ -52,7 +59,7 @@
 
 	<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
 
-		<FORM action="validarUsuario.php" method="post">
+		<FORM action="validarAdmin.php" method="post">
 		<P>
     			<LABEL for="nombre"><?=$password?> </LABEL>
               		<LABEL for="apellido"><?=$user?> </LABEL>
