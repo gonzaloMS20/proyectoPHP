@@ -42,7 +42,7 @@
 				
 				// Si es un usuario valido
 				if($registro["id_admin"]=="t" && pg_num_rows($result)==1 && $registro["username"]==$usuario->getUserName() && $registro["password"]==$usuario->getPassword()){			
-					header ('location: formulario.php');
+					header ('location: menu.php');
 				}elseif($registro["id_admin"]=="f" && pg_num_rows($result)==1 && $registro["username"]==$usuario->getUserName() && $registro["password"]==$usuario->getPassword()){			
 					header ('location: /mascotas.php');
 				}elseif($registro["id_admin"]=="t" && pg_num_rows($result)==1 && $registro["username"]==$usuario->getUserName() && $registro["password"]==""){

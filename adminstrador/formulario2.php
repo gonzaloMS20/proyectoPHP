@@ -14,23 +14,16 @@
 
 	<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#800080" alink="#ff0000">
 	
-		<FORM action="acciones.php" method="post">
+		<FORM action="acciones2.php" method="post">
     		<P>
-    			<LABEL for="cantidad">cantidad: </LABEL>
-              			<INPUT type="text" name="cant" id="cant_"><BR>
-              	<LABEL for="precio">precio:  </LABEL>
-              			<INPUT type="text" name="prec" id="prec_"><BR>
+    			
               	<LABEL for="nombre">nombre:  </LABEL>
               			<INPUT type="text" name="nomb" id="nomb_"><BR>
-              	<LABEL for="nombre">descrip:  </LABEL>
-              			<INPUT type="text" name="desc" id="desc_"><BR>
-              	<LABEL for="nombre">imagen:  </LABEL>
-              			<INPUT type="text" name="ima" id="ima_"><BR><BR>
-              			
+              	              			
     			<INPUT type="submit" value="Enviar"> <INPUT type="reset">
     		</P>
  		</FORM>
-<?php
+ 		<?php
 	echo '<a href="'.$_SERVER['HTTP_REFERER'].'">Regresar</a>';
 	?>
 	</BODY>

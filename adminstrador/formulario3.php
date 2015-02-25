@@ -22,18 +22,13 @@
               			<INPUT type="text" name="prec" id="prec_"><BR>
               	<LABEL for="nombre">nombre:  </LABEL>
               			<INPUT type="text" name="nomb" id="nomb_"><BR>
-              	<LABEL for="nombre">descrip:  </LABEL>
-              			<INPUT type="text" name="desc" id="desc_"><BR>
-              	<LABEL for="nombre">imagen:  </LABEL>
-              			<INPUT type="text" name="ima" id="ima_"><BR><BR>
-              			
+              	
     			<INPUT type="submit" value="Enviar"> <INPUT type="reset">
     		</P>
  		</FORM>
-<?php
+ 		<?php
 	echo '<a href="'.$_SERVER['HTTP_REFERER'].'">Regresar</a>';
 	?>
 	</BODY>
 	</CENTER>
 </HTML> 
-

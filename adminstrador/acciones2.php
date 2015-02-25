@@ -18,21 +18,18 @@ $ima_=$_POST['ima'];
 		Error: no se pudo conectar a la bd';
 		</CENTER>";
 		exit;
-		
 	}else{
 
-		$query = "INSERT INTO producto (cantidad,precio,nombre,descripcion,imagen) 
-		VALUES ($cant_,$prec_,'$nomb_','$desc_',lo_import('$uploadfile'));";
+		$query = "DELETE FROM producto where nombre='$nomb_';";
 		
 		$result = pg_query($query) or die('Error al insertar datos: ' . pg_last_error());
-		echo '<a href="'.$_SERVER['HTTP_REFERER'].'">Regresar</a>';
+		
 		$cmdtuples = pg_affected_rows($result);
-		echo $cmdtuples . " datos registrados.\n";
+		echo $cmdtuples . " datos eliminados.\n";
 		
 		echo "<hr>";
 		pg_free_result($result);
 		pg_close($conn_string);
 	}
-	echo '<a href="'.$_SERVER['HTTP_REFERER'].'">Regresar</a>';
-
+echo '<a href="'.$_SERVER['HTTP_REFERER'].'">Regresar</a>';
 ?>
